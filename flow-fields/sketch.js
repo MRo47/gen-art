@@ -1,4 +1,4 @@
-
+let fps = 30;
 var num = 2000;
 var noiseScale = 800;
 var noiseStrength = 2;
@@ -13,7 +13,7 @@ function preload() {
 }
 
 function setup() {
-  frameRate(30);
+  frameRate(fps);
   getAudioContext().suspend();
   createCanvas(windowWidth, windowHeight);
   noStroke();
