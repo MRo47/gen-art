@@ -54,5 +54,15 @@ function mousePressed() {
   else {
     started = false;
     sound.pause();
+    saveDrawing();
   }
+}
+
+function saveDrawing() {
+  save(createNameTimestamp("mro47_flow-fields"));
+}
+
+function createNameTimestamp(name) {
+  const timestamp = Date.now();
+  return `${name}_${timestamp}`;
 }
