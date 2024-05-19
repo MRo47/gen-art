@@ -1,7 +1,7 @@
 
 var num = 2000;
 var noiseScale = 800;
-var noiseStrength = 1;
+var noiseStrength = 2;
 var particles = [num];
 var x_scale = 1.5;
 var speed = 2; // random(0.5, 2);
