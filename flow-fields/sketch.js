@@ -12,6 +12,7 @@ function preload() {
 }
 
 function setup() {
+  frameRate(30);
   getAudioContext().suspend();
   createCanvas(windowWidth, windowHeight);
   noStroke();
