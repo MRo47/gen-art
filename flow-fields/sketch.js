@@ -1,11 +1,12 @@
 let fps = 30;
-var num = 2000;
+let particle_density = 0.001;
 var noiseScale = 800;
 var noiseStrength = 2;
 var particles = [num];
 var x_scale = 1.5;
 var speed = 2; // random(0.5, 2);
 var started = false;
+var num;
 var sound;
 
 function preload() {
@@ -17,6 +18,7 @@ function setup() {
   getAudioContext().suspend();
   createCanvas(windowWidth, windowHeight);
   noStroke();
+  num = particle_density * width * height
   for (let i = 0; i < num; i++) {
     //x value start slightly outside the right of canvas, z value how close to viewer
     var loc = createVector(random(width * x_scale), random(height), 2);
