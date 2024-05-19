@@ -32,8 +32,6 @@ class Particle {
     }
   }
   checkEdges() {
-    //float distance = dist(width/2, height/2, loc.x, loc.y);
-    //if (distance>150) {
     if (this.loc.x < 0 || this.loc.x > width || this.loc.y < 0 || this.loc.y > height) {
       this.loc.x = random(width * x_scale);
       this.loc.y = random(height);

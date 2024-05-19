@@ -1,9 +1,10 @@
 
 var num = 2000;
-var noiseScale = 800, noiseStrength = 1;
+var noiseScale = 800;
+var noiseStrength = 1;
 var particles = [num];
 var x_scale = 1.5;
-var speed = 1.618; // random(0.5, 2);
+var speed = 2; // random(0.5, 2);
 var started = false;
 var sound;
 
