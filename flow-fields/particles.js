@@ -5,8 +5,8 @@ class Particle {
     this.speed = _speed;
     this.color = color(random(0, 200), random(0, 200), 255);
     this.col_switch = false;
-    this.loc.z = random(1, 8);
-
+    let max_d = max(width, height);
+    this.loc.z = random(0.0005 * max_d, 0.004 * max_d);
   }
   run() {
     this.move();
