@@ -13,6 +13,12 @@ function preload() {
   sound = loadSound('assets/ambient-wave-48-tribute-17243-pixabay.mp3')
 }
 
+function drawSwitch() {
+  background(0);
+  fill(255);
+  circle(width / 2, height / 2, min(width, height) / 3);
+}
+
 function setup() {
   frameRate(fps);
   getAudioContext().suspend();
@@ -27,13 +33,12 @@ function setup() {
     var dir = createVector(cos(angle), sin(angle));
     particles[i] = new Particle(loc, dir, speed);
   }
-  background(0);
-  fill(255);
-  circle(width / 2, height / 2, min(width, height) / 3);
+  drawSwitch();
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  drawSwitch();
 }
 
 
