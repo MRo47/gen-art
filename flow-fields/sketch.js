@@ -49,12 +49,10 @@ function mousePressed() {
   if (!started) {
     userStartAudio();
     sound.loop();
-    fullscreen(true)
     started = true;
   }
   else {
     sound.pause();
-    fullscreen(false);
     saveDrawing();
     started = false;
   }
