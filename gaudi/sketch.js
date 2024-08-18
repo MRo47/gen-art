@@ -9,8 +9,8 @@ function setup() {
 
   for(y=1; y<(width/y_div)-1; y++)
   {
-    x_offset = random(-15, 15)
-    phi = getRandomFloat(0, y_div)
+    x_offset = 0 //random(-15, 15)
+    phi = getRandomFloat(0, y_div*3)
     col = colors[y%colors.length]
     draw_curve(y*y_div, x_offset, phi, col)
     draw_curve((y+getRandomFloat(-1, 1))*y_div, x_offset+random(0,15), phi, col)
