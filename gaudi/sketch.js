@@ -1,8 +1,6 @@
 function setup() {
-  createCanvas(900,900)
-  // noStroke()
+  createCanvas(1200,920)
   strokeWeight(3)
-  // noFill()
 
   var colors = ["#0466c8", "#0353a4", "#023e7d", "#002855", "#001845", "#001233", "#33415c", "#5c677d", "#7d8597", "#979dac"]
   // var colors = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"]
@@ -27,17 +25,17 @@ function draw_curve(y, x_offset, phi, col)
 {
   beginShape()
   stroke(col)
-  
-  vertex(0, height+10)
-
   margin = 30
   wavelength = 0.8*PI / 180
+  
+  vertex(-margin, height*1.05)
+
 
   for (x = -margin; x < width + margin; x += 1) {
     curveVertex(x + x_offset, y + 20 * cos((x + phi) * wavelength))
   }
 
-  vertex(width, height+10)
+  vertex(width+margin, height*1.05)
 
   endShape(CLOSE)
 }
