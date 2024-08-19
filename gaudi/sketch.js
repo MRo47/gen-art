@@ -30,7 +30,7 @@ function draw_curve(y, x_offset, phi, col)
   
   vertex(0, height+10)
 
-  margin = 15
+  margin = 30
   wavelength = 0.8*PI / 180
 
   for (x = -margin; x < width + margin; x += 1) {
