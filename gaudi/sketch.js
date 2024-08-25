@@ -1,15 +1,13 @@
 function setup() {
   createCanvas(1200,920)
   strokeWeight(3)
-  stroke(0)
-  rect(width/2, height/2, width, height)
 
-  // let colors = ["#0466c8", "#0353a4", "#023e7d", "#002855", "#001845", "#001233", "#33415c", "#5c677d", "#7d8597", "#979dac"]
-  let colors = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"]
-  // let colors = ["#55dde0", "#33658a", "#2f4858", "#f6ae2d", "#f26419"]
+  let colors = ["#011627", "#2ec4b6", "#e71d36", "#ff9f1c"]
+  // let colors = ["#8ecae6", "#219ebc", "#023047", "#ffb703", "#fb8500"]
   // let colors = ["#d00000", "#ffba08", "#3f88c5", "#032b43", "#136f63"]
+  // let colors = ["#55dde0", "#33658a", "#2f4858", "#f6ae2d", "#f26419"]
+  // let colors = ["#0466c8", "#0353a4", "#023e7d", "#002855", "#001845", "#001233", "#33415c", "#5c677d", "#7d8597", "#979dac"]
   // let colors = ["#00abf5", "#38027c", "#00469e", "#84d600", "#006132", "#00946a", "#00be55", "#49c800", "#ffc300", "#0078d5", "#ff7100", "#fc0000"]
-  // let colors = ["#011627", "#fdfffc", "#2ec4b6", "#e71d36", "#ff9f1c"]
 
   let y_div = 60;
 
@@ -32,7 +30,8 @@ function setup() {
   // let bg_color = "#fff5df"
   // let bg_color = "ffffff"
   // let bg_color = "#ddefff"
-  let bg_color = "#ffffff"
+  // let bg_color = "#ffffff"
+  let bg_color = 30
   draw_mosaic(2.5, get(), bg_color)
 
   draw_border(10, 0)
@@ -42,10 +41,9 @@ function setup() {
 
 function draw_border(border_width, color) {
   noFill()
-  strokeWeight(border_width)
+  strokeWeight(border_width*2)
   stroke(color)
-  offset = border_width/2
-  rect(offset, offset, width-border_width, height-border_width)
+  rect(0, 0, width, height)
   noStroke()
 }
 
