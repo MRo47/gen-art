@@ -1,6 +1,8 @@
 function setup() {
-  createCanvas(1200, 920);
+  createCanvas(1920, 1080);
   strokeWeight(3);
+
+  let mosiac_radius = 5;
 
   let palletes = [
     ["#011627", "#2ec4b6", "#e71d36", "#ff9f1c"],
@@ -23,21 +25,21 @@ function setup() {
 
   let colors = random(palletes);
 
-  let y_div = 60;
+  let x_div = width/20;
 
   let seperator_color = "#ffffff";
 
-  for (y = -1; y < width / y_div + 1; y++) {
-    x_offset = random(-15, 15);
-    phi = getRandomFloat(0, y_div * 5);
+  for (y = -1; y < width / x_div + 1; y++) {
+    x_offset = random(-x_div/4, x_div/4);
+    phi = getRandomFloat(0, x_div * 5);
     col = random(colors);
     fill(seperator_color);
-    drawCurve(y * y_div, x_offset, phi, seperator_color);
+    drawCurve(y * x_div, x_offset, phi, seperator_color);
     fill(col);
     drawCurve(
-      (y + 0.4 + getRandomFloat(-0.3, 0.3)) * y_div,
+      (y + getRandomFloat(0.1, 0.7)) * x_div,
       x_offset,
-      phi + getRandomFloat(0, 0.5 * y_div),
+      phi + getRandomFloat(0, x_div / 2),
       col
     );
   }
@@ -46,8 +48,8 @@ function setup() {
   // let bg_color = "ffffff"
   // let bg_color = "#ddefff"
   // let bg_color = "#ffffff"
-  let bg_color = 30;
-  draw_mosaic(2.5, get(), bg_color);
+  let bg_color = 20;
+  draw_mosaic(mosiac_radius, get(), bg_color);
 
   draw_border(10, 0);
 
@@ -71,7 +73,7 @@ function drawCurve(y, x_offset, phi, col) {
   vertex(-margin, height * 1.05);
 
   for (x = -margin; x < width + margin; x += 1) {
-    curveVertex(x + x_offset, y + 20 * cos((x + phi) * wavelength));
+    curveVertex(x + x_offset, y + height/40 * cos((x + phi) * wavelength));
   }
 
   vertex(width + margin, height * 1.05);
