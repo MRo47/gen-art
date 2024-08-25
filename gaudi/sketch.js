@@ -3,6 +3,7 @@ function setup() {
   strokeWeight(3);
 
   let mosiac_radius = 5;
+  let mosiac_background_color = 20;
 
   let palletes = [
     ["#011627", "#2ec4b6", "#e71d36", "#ff9f1c"],
@@ -25,31 +26,11 @@ function setup() {
 
   let colors = random(palletes);
 
-  let x_div = width/20;
-
   let seperator_color = "#ffffff";
+  
+  drawGaudi(colors, seperator_color);
 
-  for (y = -1; y < width / x_div + 1; y++) {
-    x_offset = random(-x_div/4, x_div/4);
-    phi = getRandomFloat(0, x_div * 5);
-    col = random(colors);
-    fill(seperator_color);
-    drawCurve(y * x_div, x_offset, phi, seperator_color);
-    fill(col);
-    drawCurve(
-      (y + getRandomFloat(0.1, 0.7)) * x_div,
-      x_offset,
-      phi + getRandomFloat(0, x_div / 2),
-      col
-    );
-  }
-
-  // let bg_color = "#fff5df"
-  // let bg_color = "ffffff"
-  // let bg_color = "#ddefff"
-  // let bg_color = "#ffffff"
-  let bg_color = 20;
-  draw_mosaic(mosiac_radius, get(), bg_color);
+  draw_mosaic(mosiac_radius, get(), mosiac_background_color);
 
   draw_border(10, 0);
 
@@ -62,6 +43,25 @@ function draw_border(border_width, color) {
   stroke(color);
   rect(0, 0, width, height);
   noStroke();
+}
+
+function drawGaudi(colors, seperator_color) {
+  let x_div = width / 20;
+
+  for (y = -1; y < width / x_div + 1; y++) {
+    x_offset = random(-x_div / 4, x_div / 4);
+    phi = getRandomFloat(0, x_div * 5);
+    col = random(colors);
+    fill(seperator_color);
+    drawCurve(y * x_div, x_offset, phi, seperator_color);
+    fill(col);
+    drawCurve(
+      (y + getRandomFloat(0.1, 0.7)) * x_div,
+      x_offset,
+      phi + getRandomFloat(0, x_div / 2),
+      col
+    );
+  }
 }
 
 function drawCurve(y, x_offset, phi, col) {
