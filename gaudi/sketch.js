@@ -27,7 +27,7 @@ function setup() {
   let colors = random(palletes);
 
   let seperator_color = "#ffffff";
-  
+
   drawGaudi(colors, seperator_color);
 
   draw_mosaic(mosiac_radius, get(), mosiac_background_color);
@@ -73,7 +73,7 @@ function drawCurve(y, x_offset, phi, col) {
   vertex(-margin, height * 1.05);
 
   for (x = -margin; x < width + margin; x += 1) {
-    curveVertex(x + x_offset, y + height/40 * cos((x + phi) * wavelength));
+    curveVertex(x + x_offset, y + (height / 40) * cos((x + phi) * wavelength));
   }
 
   vertex(width + margin, height * 1.05);
