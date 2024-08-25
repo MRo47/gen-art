@@ -25,17 +25,14 @@ function setup() {
 
   let y_div = 60;
 
-  // let bg2_color = "#ffffe9"
-  // let bg2_color = "#e9ffec"
-  let bg2_color = "#ffffff";
-  // let bg2_color = random(colors)
+  let seperator_color = "#ffffff";
 
   for (y = -1; y < width / y_div + 1; y++) {
     x_offset = random(-15, 15);
     phi = getRandomFloat(0, y_div * 5);
     col = random(colors);
-    fill(bg2_color);
-    drawCurve(y * y_div, x_offset, phi, bg2_color);
+    fill(seperator_color);
+    drawCurve(y * y_div, x_offset, phi, seperator_color);
     fill(col);
     drawCurve(
       (y + 0.4 + getRandomFloat(-0.3, 0.3)) * y_div,
