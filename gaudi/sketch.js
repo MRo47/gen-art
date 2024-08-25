@@ -50,15 +50,15 @@ function drawGaudi(colors, seperator_color) {
 
   for (y = -1; y < width / x_div + 1; y++) {
     x_offset = random(-x_div / 4, x_div / 4);
-    phi = getRandomFloat(0, x_div * 5);
+    phi = random(0, x_div * 5);
     col = random(colors);
     fill(seperator_color);
     drawCurve(y * x_div, x_offset, phi, seperator_color);
     fill(col);
     drawCurve(
-      (y + getRandomFloat(0.1, 0.7)) * x_div,
+      (y + random(0.1, 0.7)) * x_div,
       x_offset,
-      phi + getRandomFloat(0, x_div / 2),
+      phi + random(0, x_div / 2),
       col
     );
   }
@@ -81,6 +81,3 @@ function drawCurve(y, x_offset, phi, col) {
   endShape(CLOSE);
 }
 
-function getRandomFloat(min, max) {
-  return Math.random() * (max - min) + min;
-}
