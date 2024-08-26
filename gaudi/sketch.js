@@ -1,8 +1,8 @@
 function setup() {
-  createCanvas(1920, 1080);
+  createCanvas(windowWidth, windowHeight);
   strokeWeight(3);
 
-  let mosiac_radius = 5;
+  let mosiac_radius = min(width, height)/200;
   let mosiac_background_color = 20;
 
   let palletes = [
@@ -47,18 +47,19 @@ function draw_border(border_width, color) {
 
 function drawGaudi(colors, seperator_color) {
   let x_div = width / 20;
+  let y_div = height / 20;
 
-  for (y = -1; y < width / x_div + 1; y++) {
+  for (y = -1; y < height / y_div + 1; y++) {
     x_offset = random(-x_div / 4, x_div / 4);
-    phi = random(0, x_div * 5);
+    phi = random(0, y_div * 5);
     col = random(colors);
     fill(seperator_color);
-    drawCurve(y * x_div, x_offset, phi, seperator_color);
+    drawCurve(y * y_div, x_offset, phi, seperator_color);
     fill(col);
     drawCurve(
-      (y + random(0.1, 0.7)) * x_div,
+      (y + random(0.1, 0.7)) * y_div,
       x_offset,
-      phi + random(0, x_div / 2),
+      phi + random(0, y_div / 2),
       col
     );
   }
