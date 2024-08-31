@@ -1,8 +1,12 @@
+let wave_img;
+let mosiac_img;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   strokeWeight(3);
+  background(255);
 
-  let mosiac_radius = min(width, height)/200;
+  let mosiac_radius = min(width, height) / 200;
   let mosiac_background_color = 20;
 
   let palletes = [
@@ -30,11 +34,29 @@ function setup() {
 
   drawGaudi(colors, seperator_color);
 
-  draw_mosaic(mosiac_radius, get(), mosiac_background_color);
+  let wave_img_no_border = get();
 
-  draw_border(10, 0);
+  wave_img = get();
+
+  draw_mosaic(mosiac_radius, wave_img_no_border, mosiac_background_color);
+
+  mosiac_img = get();
 
   noLoop();
+}
+
+function keyPressed() {
+  if (key === "d") {
+    let img_prefix;
+    if (seed === undefined) {
+      now = new Date();
+      img_prefix = now.getTime();
+    } else {
+      img_prefix = seed;
+    }
+    wave_img.save(img_prefix + "_wave.png");
+    mosiac_img.save(img_prefix + "_mosaic.png");
+  }
 }
 
 function draw_border(border_width, color) {
@@ -46,22 +68,32 @@ function draw_border(border_width, color) {
 }
 
 function drawGaudi(colors, seperator_color) {
-  let x_div = width / 20;
+  let x_div = width / 80;
   let y_div = height / 20;
 
   for (y = -1; y < height / y_div + 1; y++) {
-    x_offset = random(-x_div / 4, x_div / 4);
+    x_offset = random(-x_div, x_div);
     phi = random(0, y_div * 5);
-    col = random(colors);
+    color = random(colors);
+    y_offset = y + random(0.1, 0.7);
+    phi_offset = phi + random(0, y_div / 2);
+
     fill(seperator_color);
     drawCurve(y * y_div, x_offset, phi, seperator_color);
-    fill(col);
-    drawCurve(
-      (y + random(0.1, 0.7)) * y_div,
-      x_offset,
-      phi + random(0, y_div / 2),
-      col
-    );
+    fill(color);
+    drawCurve(y_offset * y_div, x_offset, phi_offset, color);
+
+    /////////////// single wave
+    // if (y === Math.floor(height / 2 / y_div)) {
+    //   fill(seperator_color);
+    //   drawCurve(y * y_div, x_offset, phi, seperator_color);
+    //   fill(color);
+    //   drawCurve(y_offset * y_div, x_offset, phi_offset, color);
+    // }
+    // if (y === Math.floor(height / 2 / y_div) + 1) {
+    //   fill(seperator_color);
+    //   drawCurve(y * y_div, x_offset, phi, seperator_color);
+    // }
   }
 }
 
@@ -81,4 +113,3 @@ function drawCurve(y, x_offset, phi, col) {
 
   endShape(CLOSE);
 }
-
