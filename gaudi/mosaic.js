@@ -20,7 +20,7 @@ function draw_col_dots(dot_radius, x_offset, image) {
 
     let top_y = Math.floor(random(10));
 
-    for (let i = 0; i < num_dot_in_col; i++) {
+    for (let i = -2; i < num_dot_in_col+2; i++) {
         let center_x = Math.floor(random(
             x_offset + dot_radius,
             x_offset + col_width - dot_radius,
