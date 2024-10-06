@@ -85,6 +85,13 @@ function mousePressed() {
   }
 }
 
+function touchEnded() {
+  if(mouseX < width/3 && mouseY < height/3) {
+    save_images();
+    count++;
+  }
+}
+
 function draw_border(border_width, color) {
   noFill();
   strokeWeight(border_width * 2);
