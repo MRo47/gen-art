@@ -76,6 +76,14 @@ function mousePressed() {
   }
 }
 
+// Set the fill color to a random grayscale value.
+function touchEnded() {
+  touch = touches.pop()
+  if(touch.x < width/3 && touch.y < height/3) {
+    save_images();
+  }
+}
+
 function draw_border(border_width, color) {
   noFill();
   strokeWeight(border_width * 2);
