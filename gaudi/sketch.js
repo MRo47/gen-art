@@ -57,6 +57,8 @@ function setup() {
   noLoop();
 }
 
+let count = 0;
+
 function save_images() {
   let img_prefix;
   if (seed === undefined) {
@@ -65,20 +67,21 @@ function save_images() {
   } else {
     img_prefix = seed;
   }
-  wave_img.save(img_prefix + "_wave.png");
-  mosiac_img.save(img_prefix + "_mosaic.png");
-  single_wave_img.save(img_prefix + "_single_wave.png");
+
+  if(count === 0) {
+    wave_img.save(img_prefix + "_wave.png");
+  } else if (count === 1) {
+    mosiac_img.save(img_prefix + "_mosaic.png");
+  } else if (count === 2) {
+    single_wave_img.save(img_prefix + "_single_wave.png");
+    count = 0;
+  }
 }
 
 function mousePressed() {
   if(mouseX < width/3 && mouseY < height/3) {
     save_images();
-  }
-}
-
-function touchEnded() {
-  if(mouseX < width/3 && mouseY < height/3) {
-    save_images();
+    count++;
   }
 }
 
