@@ -76,10 +76,8 @@ function mousePressed() {
   }
 }
 
-// Set the fill color to a random grayscale value.
 function touchEnded() {
-  touch = touches.pop()
-  if(touch.x < width/3 && touch.y < height/3) {
+  if(mouseX < width/3 && mouseY < height/3) {
     save_images();
   }
 }
